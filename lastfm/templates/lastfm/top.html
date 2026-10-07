@@ -1,0 +1,10 @@
+{% extends "lastfm/nav.html" %}
+{% block content %}
+<form method="get">
+  <input name="country" value="{{ country }}"> <button>Go</button>
+</form>
+<h2>Top Artists in {{ country }}</h2>
+<ol>{% for a in artist_list %}<li>{{ a.name }} ({{ a.listeners }} listeners)</li>{% endfor %}</ol>
+<h2>Top Tracks in {{ country }}</h2>
+<ol>{% for t in track_list %}<li>{{ t.name }} by {{ t.artist.name }}</li>{% endfor %}</ol>
+{% endblock %}

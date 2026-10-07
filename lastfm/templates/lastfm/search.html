@@ -1,0 +1,17 @@
+{% extends "lastfm/nav.html" %}
+{% block content %}
+<form method="get">
+  <input name="q" value="{{ q }}">
+  <select name="type">
+    <option value="artist" {% if kind == "artist" %}selected{% endif %}>Artist</option>
+    <option value="album" {% if kind == "album" %}selected{% endif %}>Album</option>
+    <option value="track" {% if kind == "track" %}selected{% endif %}>Track</option>
+  </select>
+  <button>Search</button>
+</form>
+<ul>
+{% for r in results %}
+  <li>{{ r.name }}{% if r.artist %} - {{ r.artist }}{% endif %}</li>
+{% endfor %}
+</ul>
+{% endblock %}

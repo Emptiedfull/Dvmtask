@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Last.fm Explorer</title></head>
+<body>
+  <nav>
+    <a href="{% url 'home' %}">Home</a> |
+    <a href="{% url 'top' %}">Top by Country</a> |
+    <a href="{% url 'search' %}">Search</a> |
+  </nav>
+  <hr>
+  {% if error %}<p style="color:red">Error: {{ error }}</p>{% endif %}
+  {% block content %}{% endblock %}
+</body>
+</html>
