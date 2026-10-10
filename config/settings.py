@@ -14,10 +14,10 @@ from pathlib import Path
 import os 
 
 API_KEY = os.environ.get("LASTFM_API_KEY")
+API_SECRET = os.environ.get("LASTFM_API_SECRET")
+LASTFM_BASE_URL = "https://ws.audioscrobbler.com/2.0/"
 
-API_URL = "https://ws.audioscrobbler.com/2.0/"
-
-if not API_KEY:
+if not API_KEY or not API_SECRET:
     raise RuntimeError("api key missing")
 
 

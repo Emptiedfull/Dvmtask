@@ -1,0 +1,19 @@
+{% extends "lastfm/nav.html" %}
+{% block content %}
+<h2>Update Now Playing</h2>
+
+{% if success %}<p style="color:green">{{ success }}</p>{% endif %}
+
+{% if user %}
+  <p>Connected as <b>{{ user }}</b> | <a href="{% url 'lastfm_logout' %}">Disconnect</a></p>
+  <form method="post">
+    {% csrf_token %}
+    <input name="artist" placeholder="Artist" required>
+    <input name="track" placeholder="Track" required>
+    <input name="album" placeholder="Album (optional)">
+    <button>Update</button>
+  </form>
+{% else %}
+  <p><a href="{% url 'login' %}">Connect your Last.fm account</a></p>
+{% endif %}
+{% endblock %}
