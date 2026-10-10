@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 from pathlib import Path
 import os 
 
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
 API_KEY = os.environ.get("LASTFM_API_KEY")
 API_SECRET = os.environ.get("LASTFM_API_SECRET")
 LASTFM_BASE_URL = "https://ws.audioscrobbler.com/2.0/"
